@@ -97,10 +97,11 @@ GO
 CREATE TABLE dbo.pet_list (
     id INT IDENTITY(1,1) PRIMARY KEY,
     pet_name VARCHAR(50),
+    pet_adoption_status BIT,
     pet_type INT,
     pet_race INT,
     pet_age INT,
-    pet_photo NVARCHAR(50),
+    pet_photo NVARCHAR(500),
 
     CONSTRAINT fk_pet_type FOREIGN KEY(pet_type)
         REFERENCES dbo.pet_type(id),
