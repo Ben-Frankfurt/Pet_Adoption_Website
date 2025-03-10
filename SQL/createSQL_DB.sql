@@ -55,19 +55,25 @@ DROP TABLE IF EXISTS dbo.pet_type;
 
 CREATE TABLE dbo.pet_type (
     id INT IDENTITY(1,1) PRIMARY KEY,
-    name NVARCHAR(50)
+    pet_type NVARCHAR(50)
+);
+GO
+
+CREATE TABLE dbo.genders (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    gender NVARCHAR(50)
 );
 GO
 
 CREATE TABLE dbo.titles (
     id INT IDENTITY(1,1) PRIMARY KEY,
-    name NVARCHAR(50) 
+    title NVARCHAR(50) 
 );
 GO
 
 CREATE TABLE dbo.races (
     id INT IDENTITY(1,1) PRIMARY KEY,
-    name NVARCHAR(50) 
+    race NVARCHAR(50) 
 );
 GO
 
@@ -98,10 +104,14 @@ CREATE TABLE dbo.pet_list (
     id INT IDENTITY(1,1) PRIMARY KEY,
     pet_name NVARCHAR(50),
     pet_adoption_status BIT,
+    pet_gender INT,
     pet_type INT,
     pet_race INT,
     pet_age INT,
     pet_photo NVARCHAR(500),
+
+    CONSTRAINT fk_pet_gender FOREIGN KEY(pet_gender)
+        REFERENCES dbo.genders(id),
 
     CONSTRAINT fk_pet_type FOREIGN KEY(pet_type)
         REFERENCES dbo.pet_type(id),
