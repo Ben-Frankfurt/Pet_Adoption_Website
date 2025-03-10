@@ -55,26 +55,26 @@ DROP TABLE IF EXISTS dbo.pet_type;
 
 CREATE TABLE dbo.pet_type (
     id INT IDENTITY(1,1) PRIMARY KEY,
-    name VARCHAR(50)
+    name NVARCHAR(50)
 );
 GO
 
 CREATE TABLE dbo.titles (
     id INT IDENTITY(1,1) PRIMARY KEY,
-    name VARCHAR(50) 
+    name NVARCHAR(50) 
 );
 GO
 
 CREATE TABLE dbo.races (
     id INT IDENTITY(1,1) PRIMARY KEY,
-    name VARCHAR(50) 
+    name NVARCHAR(50) 
 );
 GO
 
 CREATE TABLE dbo.emploeeys (
     id INT IDENTITY(1,1) PRIMARY KEY,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
+    first_name NVARCHAR(50),
+    last_name NVARCHAR(50),
     job_title INT,
     email_address NVARCHAR(50),
     mobile_phone NVARCHAR(50),
@@ -86,8 +86,8 @@ GO
 
 CREATE TABLE dbo.customers (
     id INT IDENTITY(1,1) PRIMARY KEY,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
+    first_name NVARCHAR(50),
+    last_name NVARCHAR(50),
     email_address NVARCHAR(50),
     mobile_phone NVARCHAR(50),
     home_address NVARCHAR(50)
@@ -96,7 +96,7 @@ GO
 
 CREATE TABLE dbo.pet_list (
     id INT IDENTITY(1,1) PRIMARY KEY,
-    pet_name VARCHAR(50),
+    pet_name NVARCHAR(50),
     pet_adoption_status BIT,
     pet_type INT,
     pet_race INT,
