@@ -9,8 +9,43 @@
 </head>
 
 <body>
+    <div id="topPage">
+        <div id="logoSection">Logo</div>
+        <div id="menuSection">
+
+            <div class="navBar">navBar</div>
+        </div>
+    </div>
+    <div id="filterSection">
+        <div id="serch">
+            <form action="" id="serchForm">
+                <input type="search" name="" id="pet_race_asxed" class="inputSerch" placeholder="גזע">
+                <input type="search" name="" id="pet_type_asxed" class="inputSerch" placeholder="זן">
+                <input type="search" name="" id="pet_gender_asxed" class="inputSerch" placeholder="gender">
+                <input type="number" name="pet_max_age" min="1" max="100" id="pet_max_age_asxed" class="inputSerch"
+                    placeholder="Max Age">
+                <input type="number" name="pet_min_age" min="1" max="100" id="pet_min_age_asxed" class="inputSerch"
+                    placeholder="Min Age">
+
+            </form>
+
+            <button type="submit" id="suButton" onclick="getSpecificAnimle()">חפש לי</button>
+        </div>
+    </div>
     <div id="forYou"></div>
     <script src="index.js"></script>
+    <script>
+        window.addEventListener('load', async () => {
+            let theNav = document.querySelector('.navBar');
+            theNav.innerHTML = '';
+            theNav.appendChild(createNavBar(arrForNav, 'Home'));
+
+            await availblepets()
+            await giveFullCard()
+        });
+
+
+    </script>
 </body>
 
 </html>

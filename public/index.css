@@ -2,8 +2,109 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
 
-    border: 1px solid red;
+#topPage {
+    width: 100%;
+    height: 50px;
+    background-color: cadetblue;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#logoSection {
+    width: 30%;
+    height: 100px;
+}
+
+#menuSection {
+    width: 69%;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#filterSection {
+    width: 100%;
+    height: 300px;
+    /* background-color: rgba(95, 158, 160, 0.733); */
+    background-image: url('./pexels-pixabay-45170.jpg');
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#serch {
+    margin-top: 75px;
+    width: 500px;
+    height: 150px;
+    background-color: rgba(95, 158, 160, 0.79);
+    border-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.inputSerch {
+    width: 45%;
+}
+
+#serchForm {
+    margin-top: 15px;
+    gap: 5px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filterDiv {
+    margin-top: 30px;
+    width: 90%;
+    height: 30px;
+    border-radius: 15px;
+}
+
+.filterDivClicked {
+    margin-top: 30px;
+    width: 90%;
+    height: 30px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.typeAndRace {
+    width: 45%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.resultDiv {
+    width: 45%;
+    height: 30px;
+    margin-top: -15px;
+}
+
+.resultDivClicked {
+    width: 90%;
+    height: 30px;
+    margin-top: -15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+#suButton {
+    width: 33%;
+    height: 30px;
+    background-color: rgba(132, 196, 198, 0.92);
+    color: #fff;
+    /* border: none; */
+    border-radius: 5px;
+
 }
 
 #forYou {
@@ -36,8 +137,145 @@
 .cardDetails {
     width: 95%;
     height: 120px;
-    text-align: right;
+    /* text-align: right;
     display: flex;
     flex-wrap: wrap;
-    justify-content: right;
+    justify-content: right; */
+}
+
+.cardDetails h4 {
+    width: 100%;
+    text-align: center;
+    height: 25px;
+    margin-top: 40px;
+    margin-bottom: -40px;
+}
+
+.cardDetails h6 {
+    margin-top: -50px;
+}
+
+.navBar {
+    margin-bottom: 0px;
+}
+
+.nav-item {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+}
+
+.nav-item.active {
+    background-color: aquamarine;
+}
+
+
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#topPage {
+    width: 100%;
+    height: 50px;
+    background-color: cadetblue;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#logoSection {
+    width: 30%;
+    height: 50px;
+}
+
+#menuSection {
+    width: 69%;
+    height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.petCard {
+    margin-top: 50px;
+    width: 70%;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#cardImg {
+    margin-top: 50px;
+    width: 70%;
+    height: 250px;
+    border-radius: 15px;
+}
+
+.deatailsPet {
+    margin-top: 30px;
+    width: 70%;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* .deatailsPet h2 {
+    width: 90%;
+    text-align: center;
+}
+
+.deatailsPet h3 {
+    width: 90%;
+    text-align: center;
+} */
+
+#titlePet {
+    width: 100%;
+    text-align: center;
+}
+
+#adoptionAplication {
+    margin-top: 30px;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cusInput {
+    width: 45%;
+    height: 25px;
+    border-radius: 5px;
+}
+
+#iputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.thankYouCard {
+    width: 80%;
+    height: 200px;
+    margin-top: 100px;
+    text-align: center;
+    background-color: rgba(95, 158, 160, 0.815);
+    border-radius: 15px;
+}
+
+.thankYouCard p {
+    margin-top: 15px;
+}
+
+.thankYouCard button {
+    margin-top: 20px;
+    height: 25px;
+    width: 150px;
+
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="topPage">
+        <div id="logoSection">Logo</div>
+        <div id="menuSection">
+            <div class="navBar">navBar</div>
+        </div>
+    </div>
+
+    <div id="forYou"></div>
+    <script src="index.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            let theNav = document.querySelector('.navBar');
+            theNav.innerHTML = '';
+            theNav.appendChild(createNavBar(arrForNav, 'About'));
+        })
+    </script>
+</body>
+
+</html>
