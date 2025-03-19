@@ -141,7 +141,7 @@ CREATE TABLE dbo.adoptions_log (
     [date] DATETIME DEFAULT GETDATE(),
     pet_adopted INT,
     customer_id INT,
-    emploeey_id INT,
+    emploee_id INT DEFAULT NULL,
 
     CONSTRAINT fk_pet_adopted FOREIGN KEY (pet_adopted)
         REFERENCES dbo.pet_list(id),

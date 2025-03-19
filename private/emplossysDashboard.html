@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="emploeeysDahboard.css">
+</head>
+
+<body>
+    <div id="topPage">
+        <div id="logoSection">
+            <h4>Ben's Adoption Center</h4>
+        </div>
+        <div id="menuSection">
+
+            <div class="navBar">navBar</div>
+        </div>
+    </div>
+
+    <div id="lidesContainer">
+        <div id="lidesTitle">
+            <h1>Lides List</h1>
+        </div>
+        <div id="lidesList">
+            <div class="lideCard">
+                <div class="imgCard">
+                    <img src="https://images.pexels.com/photos/3763311/pexels-photo-3763311.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                        alt="">
+                </div>
+                <div class="dtlCard">
+                    <h2>roky | 2 | shoval choen | 052 359 6632</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="emploeeysDashboard.js"></script>
+    <script src="index.js"></script>
+    <script>
+        window.addEventListener('load', async () => {
+            let theNav = document.querySelector('.navBar');
+            theNav.innerHTML = '';
+            theNav.appendChild(createNavBar(arrForNav, 'Emploee Dashboard'));
+            await allLides();
+            giveFullLide()
+        });
+    </script>
+</body>
+
+</html>

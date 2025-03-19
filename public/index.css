@@ -2,20 +2,65 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: Tahoma, Verdana, sans-serif;
 }
 
-#topPage {
-    width: 100%;
-    height: 50px;
-    background-color: cadetblue;
+body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
+.wellcamContainer {
+    width: 98%;
+    height: 600px;
+    margin-top: 5px;
+    border-radius: 15px;
+    background-image: url('./804a0d4d-35ca-470e-8b3f-f40d5d8350e4.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.middleDiv {
+    height: 250px;
+    text-align: center;
+    padding-top: 200px;
+}
+
+.middleDiv h1 {
+    font: italic 2.5rem "Fira Sans", serif;
+    color: rgb(21, 78, 80);
+}
+
+#topPage {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
 #logoSection {
     width: 30%;
     height: 100px;
+    padding-top: 12.5px;
+    padding-left: 15px;
+}
+
+#logoSection h4 {
+    color: #fff;
+    font: italic 1.2rem "Fira Sans", serif;
+}
+
+.logoImg {
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
 }
 
 #menuSection {
@@ -27,25 +72,32 @@
 }
 
 #filterSection {
+    margin-bottom: px;
     width: 100%;
     height: 300px;
-    /* background-color: rgba(95, 158, 160, 0.733); */
-    background-image: url('./pexels-pixabay-45170.jpg');
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 
 #serch {
     margin-top: 75px;
     width: 500px;
-    height: 150px;
+    height: 200px;
     background-color: rgba(95, 158, 160, 0.79);
     border-radius: 15px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 
+}
+
+#searchTitle {
+    padding-top: 15px;
+    color: #fff;
+    font: italic 1.5rem "Fira Sans", serif;
 }
 
 .inputSerch {
@@ -61,86 +113,225 @@
     justify-content: center;
 }
 
-.filterDiv {
-    margin-top: 30px;
-    width: 90%;
+.typeAndGender {
     height: 30px;
-    border-radius: 15px;
-}
-
-.filterDivClicked {
-    margin-top: 30px;
-    width: 90%;
-    height: 30px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-}
-
-.typeAndRace {
     width: 45%;
+    /* border: 1px solid black; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
 }
 
-.resultDiv {
-    width: 45%;
-    height: 30px;
-    margin-top: -15px;
-}
-
-.resultDivClicked {
-    width: 90%;
-    height: 30px;
-    margin-top: -15px;
-    border-bottom-right-radius: 15px;
+.leftBotton {
+    width: 50%;
+    border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: rgba(132, 196, 198, 0.92);
+    color: aliceblue;
+
+}
+
+.leftBotton:hover {
+    width: 50%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: rgb(128, 200, 202);
+    color: black;
+
+
+}
+
+.leftBotton-click {
+    width: 50%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    /* box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5); */
+    background-color: rgba(128, 199, 202, 0.546);
+    color: aliceblue;
+
+}
+
+
+.rightBotton {
+    width: 50%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: rgba(132, 196, 198, 0.92);
+    color: aliceblue;
+
+
+}
+
+.rightBotton:hover {
+    width: 50%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: rgb(128, 200, 202);
+    color: black;
+
+
+}
+
+.rightBotton-click {
+    width: 50%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    /* box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5); */
+    background-color: rgba(128, 199, 202, 0.546);
+    color: aliceblue;
+
+}
+
+.slider-container {
+    position: relative;
+    width: 300px;
+}
+
+.range-slider {
+    margin-top: 5px;
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background-color: rgba(95, 158, 160, 0.452);
+    border-radius: 5px;
+
+}
+
+.slider-track {
+    position: absolute;
+    height: 5px;
+    background-color: rgba(132, 196, 198, 0.92);
+    border-radius: 5px;
+}
+
+input[type="range"] {
+    position: absolute;
+    width: 100%;
+    -webkit-appearance: none;
+    background: none;
+    pointer-events: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    margin-top: -5px;
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: rgba(132, 196, 198, 0.92);
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: auto;
+    position: relative;
+}
+
+.range-values {
+    color: #fff;
+    margin-top: 5px;
+    font-weight: bold;
 }
 
 #suButton {
+    margin-top: 10px;
     width: 33%;
     height: 30px;
     background-color: rgba(132, 196, 198, 0.92);
     color: #fff;
     /* border: none; */
     border-radius: 5px;
+}
+
+#suButton:hover {
+    margin-top: 10px;
+    width: 33%;
+    height: 30px;
+    background-color: rgba(132, 196, 198, 0.92);
+    color: black;
+    /* border: none; */
+    border-radius: 5px;
+}
+
+#forYouSection {
+    width: 98%;
+    border-radius: 15px;
+    margin-top: 20px;
+    background-color: rgb(245, 236, 224);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* background-color: rgba(95, 158, 160, 0.5); */
+}
+
+#forYouTitle {
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    /* background-color: rgba(95, 158, 160, 0.79); */
+    height: 75px;
+    padding-top: 22.5px;
+}
+
+#forYouTitle h2 {
+    text-align: center;
+    color: #020202;
 
 }
 
 #forYou {
-    width: 100%;
+    padding-top: 50px;
+    width: 98%;
+    border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    /* gap: 15px; */
     padding: 15px;
+    background-color: rgba(95, 153, 174, 0.505);
 }
 
 .forYouCard {
-    width: 200px;
-    height: 250px;
+    margin: 15px;
+    padding-top: 10px;
+    width: 300px;
+    height: 350px;
     border-radius: 10px;
     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: antiquewhite;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
+}
+
+.forYouCard:hover {
+    margin: 5px;
+    padding-top: 10px;
+    width: 310px;
+    height: 360px;
+    border-radius: 10px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5);
+    background-color: antiquewhite;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: 50ms;
 
 }
 
 .forYouImg {
-    width: 200px;
-    height: 130px;
+    width: 280px;
+    height: 190px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
 .cardDetails {
     width: 95%;
-    height: 120px;
-    /* text-align: right;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: right; */
+    height: 150px;
 }
 
 .cardDetails h4 {
@@ -149,6 +340,7 @@
     height: 25px;
     margin-top: 40px;
     margin-bottom: -40px;
+    font: italic 1.5rem "Fira Sans", serif;
 }
 
 .cardDetails h6 {
@@ -156,6 +348,7 @@
 }
 
 .navBar {
+    margin-top: 15px;
     margin-bottom: 0px;
 }
 
@@ -166,7 +359,7 @@
 }
 
 .nav-item.active {
-    background-color: aquamarine;
+    background-color: rgba(95, 158, 160, 0.897);
 }
 
 
@@ -180,32 +373,42 @@ body {
 #topPage {
     width: 100%;
     height: 50px;
-    background-color: cadetblue;
+    /* background-color: cadetblue; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 #logoSection {
+    margin-top: 10px;
     width: 30%;
     height: 50px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: rgba(95, 158, 160, 0.79);
 }
 
 #menuSection {
+    margin-top: 10px;
     width: 69%;
     height: 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgba(95, 158, 160, 0.79);
 }
 
 .petCard {
     margin-top: 50px;
     width: 70%;
-    height: 600px;
+    height: 700px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: rgb(245, 236, 224);
+    border-radius: 15px;
 }
 
 #cardImg {
@@ -224,33 +427,45 @@ body {
     justify-content: center;
 }
 
-/* .deatailsPet h2 {
-    width: 90%;
-    text-align: center;
-}
-
-.deatailsPet h3 {
-    width: 90%;
-    text-align: center;
-} */
 
 #titlePet {
     width: 100%;
     text-align: center;
 }
 
+#titlePet h2 {
+    font: italic 2rem "Fira Sans", serif;
+}
+
 #adoptionAplication {
+    border-radius: 10px;
+    border: 1px solid black;
     margin-top: 30px;
-    width: 80%;
+    width: 90%;
+    height: 190px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: rgba(95, 158, 160, 0.18);
+}
+
+#adoptSlogen {
+    padding-top: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid black;
+    background-color: rgba(95, 158, 160, 0.79);
+    text-align: center;
+    color: white;
 }
 
 .cusInput {
     width: 45%;
     height: 25px;
     border-radius: 5px;
+    background-color: rgba(245, 236, 224, 0.562);
 }
 
 #iputs {
@@ -260,21 +475,40 @@ body {
     gap: 10px;
 }
 
+#adoptBotton {
+    width: 50%;
+    height: 25px;
+    margin-top: 10px;
+    background-color: rgba(132, 196, 198, 0.92);
+    border-radius: 5px;
+    color: #fff;
+}
+
+#adoptBotton:hover {
+    width: 50%;
+    height: 25px;
+    margin-top: 10px;
+    background-color: rgb(132, 196, 198);
+    border-radius: 5px;
+    color: black;
+}
+
 .thankYouCard {
     width: 80%;
     height: 200px;
-    margin-top: 100px;
     text-align: center;
     background-color: rgba(95, 158, 160, 0.815);
     border-radius: 15px;
+    border: 1px solid black;
 }
 
 .thankYouCard p {
     margin-top: 15px;
+    margin-bottom: 30px;
 }
 
 .thankYouCard button {
-    margin-top: 20px;
+    margin-top: 70px;
     height: 25px;
     width: 150px;
 

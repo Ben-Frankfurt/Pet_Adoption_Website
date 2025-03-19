@@ -1,7 +1,8 @@
 
 let arrForNav = [
     { href: 'index.html', displayText: 'Home' },
-    { href: 'about.html', displayText: 'About' }
+    { href: 'about.html', displayText: 'About' },
+    { href: '/emploeeysDashboard', displayText: 'Emploee Dashboard' }
 ];
 
 function createNavBar(arrForNavItems, thePageName) {
@@ -21,7 +22,7 @@ function createNavBar(arrForNavItems, thePageName) {
 
 async function availblepets() {
     try {
-        let response = await fetch('http://localhost:3001/AvilablePets');
+        let response = await fetch('/AvilablePets');
         let pets = await response.json();
         let forYou = document.querySelector('#forYou');
 
@@ -56,18 +57,113 @@ async function availblepets() {
     }
 }
 
-async function getSpecificAnimle() {
-    const max_age = document.querySelector("#pet_max_age_asxed").value;
-    const min_age = document.querySelector("#pet_min_age_asxed").value;
-    const pet_race = document.querySelector("#pet_race_asxed").value;
-    const pet_type = document.querySelector("#pet_type_asxed").value;
-    const pet_gender = document.querySelector("#pet_gender_asxed").value;
+function setCat() {
+    const dog_botton = document.querySelector("#petTypeDog");
+    const cat_botton = document.querySelector("#petTypeCat");
+    const pet_type = document.querySelector("#petType");
+    let pet_type_value = pet_type.dataset.value;
 
-    console.log(max_age, min_age, pet_race, pet_type, pet_gender);
+    if (pet_type_value === 'Dog') {
+        pet_type_value = 'Cat';
+        dog_botton.className = 'rightBotton';
+        cat_botton.className = 'leftBotton-click';
+    } else if (pet_type_value === 'Cat') {
+        cat_botton.className = 'leftBotton';
+        pet_type_value === ''
+
+    } else {
+        pet_type_value = 'Cat';
+        cat_botton.className = 'leftBotton-click';
+    }
+    console.log(pet_type_value);
+    pet_type.dataset.value = pet_type_value;
+
+}
+
+function setDog() {
+    const dog_botton = document.querySelector("#petTypeDog");
+    const cat_botton = document.querySelector("#petTypeCat");
+    const pet_type = document.querySelector("#petType");
+    let pet_type_value = pet_type.dataset.value;
+
+    if (pet_type_value === 'Cat') {
+        pet_type_value = 'Dog';
+        dog_botton.className = 'rightBotton-click';
+        cat_botton.className = 'leftBotton';
+    } else if (pet_type_value === 'Dog') {
+        pet_type_value = '';
+        dog_botton.className = 'rightBotton';
+        cat_botton.className = 'leftBotton';
+    } else {
+        pet_type_value = 'Dog';
+        dog_botton.className = 'rightBotton-click';
+    }
+    console.log(pet_type_value);
+    pet_type.dataset.value = pet_type_value;
+
+}
+
+function setMale() {
+    const female_botton = document.querySelector("#petTypeFemale");
+    const Male_botton = document.querySelector("#petTypeMale");
+    const pet_gender = document.querySelector("#petGender");
+    let pet_gender_value = pet_gender.dataset.value;
+
+    if (pet_gender_value === 'Female') {
+        pet_gender_value = 'Male';
+        female_botton.className = 'rightBotton';
+        Male_botton.className = 'leftBotton-click';
+    } else if (pet_gender_value === 'Male') {
+        female_botton.className = 'rightBotton';
+        Male_botton.className = 'leftBotton';
+        pet_gender_value === ''
+
+    } else {
+        pet_gender_value = 'Male';
+        Male_botton.className = 'leftBotton-click';
+    }
+    console.log(pet_gender_value);
+    pet_gender.dataset.value = pet_gender_value;
+
+}
+
+function setFemale() {
+    const female_botton = document.querySelector("#petTypeFemale");
+    const Male_botton = document.querySelector("#petTypeMale");
+    const pet_gender = document.querySelector("#petGender");
+    let pet_gender_value = pet_gender.dataset.value;
+
+    if (pet_gender_value === 'Male') {
+        pet_gender_value = 'Female';
+        female_botton.className = 'rightBotton-click';
+        Male_botton.className = 'leftBotton';
+    } else if (pet_gender_value === 'Female') {
+        pet_gender_value = '';
+        female_botton.className = 'rightBotton';
+        Male_botton.className = 'leftBotton';
+    } else {
+        pet_gender_value = 'Female';
+        female_botton.className = 'rightBotton-click';
+    }
+    console.log(pet_gender_value);
+    pet_gender.dataset.value = pet_gender_value;
+
+}
+
+async function getSpecificAnimle() {
+    const max_age = document.querySelector("#maxRange").value;
+    const min_age = document.querySelector("#minRange").value;
+    // const pet_race = document.querySelector("#pet_race_asxed").value;
+    const pet_type = document.querySelector("#petType");
+    let pet_type_value = pet_type.dataset.value;
+    const pet_gender = document.querySelector("#petGender");
+    let pet_gender_value = pet_gender.dataset.value;
+
+    console.log(max_age, min_age, pet_type_value, pet_gender_value);
 
 
     try {
-        let response = await fetch(`/serchSpecificAnimle?type=${pet_type}&race=${pet_race}&gender=${pet_gender}&min_age=${min_age}&max_age=${max_age}`);
+        let response = await fetch(`/serchSpecificAnimle?type=${pet_type_value}&gender=${pet_gender_value}&min_age=${min_age}&max_age=${max_age}`);
         let pets = await response.json();
         let forYou = document.querySelector('#forYou');
         console.log(pets);
@@ -77,8 +173,7 @@ async function getSpecificAnimle() {
             let newDiv = document.createElement('div');
             newDiv.setAttribute('class', 'forYouCard');
             newDiv.setAttribute('id', `${pets.id}`);
-            console.log(pets.pet_photo);
-            console.log(pets.race);
+
             let petImg = document.createElement('img');
             petImg.setAttribute('class', 'forYouImg');
             petImg.setAttribute('src', `${pets.pet_photo}`);
@@ -104,7 +199,7 @@ async function getSpecificAnimle() {
             for (let pet of pets) {
                 let newDiv = document.createElement('div');
                 newDiv.setAttribute('class', 'forYouCard');
-
+                newDiv.setAttribute('id', `${pet.id}`);
                 let petImg = document.createElement('img');
                 petImg.setAttribute('class', 'forYouImg');
                 petImg.setAttribute('src', `${pet.pet_photo}`);
@@ -127,7 +222,7 @@ async function getSpecificAnimle() {
         }
 
 
-
+        giveFullCard();
     }
     catch (error) {
         console.error('Error fetching pets:', error);

@@ -9,30 +9,57 @@
 </head>
 
 <body>
-    <div id="topPage">
-        <div id="logoSection">Logo</div>
-        <div id="menuSection">
+    <div class="wellcamContainer">
+        <div id="topPage">
+            <div id="logoSection">
+                <!-- <img src="pet Adoption center -.png" alt="web site logo" class="logoImg"> -->
+                <h4>Ben's Adoption Center</h4>
+            </div>
+            <div id="menuSection">
+                <div class="navBar">navBar</div>
+            </div>
+        </div>
+        <div class="middleDiv">
+            <h1>Open Hearts, Wagging Tails – Adopt Today!</h1>
+        </div>
+        <div id="filterSection">
+            <div id="serch">
+                <div id="searchTitle">
+                    <h3>Find your best friend</h3>
+                </div>
+                <div id="serchForm">
+                    <div id="petType" class="typeAndGender" data-value="">
+                        <button id="petTypeCat" class="leftBotton" onclick="setCat()">Cat</button>
+                        <button id="petTypeDog" class="rightBotton" onclick="setDog()">Dog</button>
+                    </div>
+                    <div id="petGender" class="typeAndGender" data-value="">
+                        <button id="petTypeMale" class="leftBotton" onclick="setMale()">Male</button>
+                        <button id="petTypeFemale" class="rightBotton" onclick="setFemale()">Female</button>
+                    </div>
+                    <div id="petAge" class="typeAndGender">
+                        <div class="slider-container">
+                            <div class="range-values">
+                                Age: <span id="selectedRange">5 - 25</span>
+                            </div>
+                            <div class="range-slider">
+                                <div class="slider-track"></div>
+                                <input type="range" id="minRange" min="1" max="30" value="5" step="1">
+                                <input type="range" id="maxRange" min="1" max="30" value="25" step="1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="navBar">navBar</div>
+                <button type="submit" id="suButton" onclick="getSpecificAnimle()">Find me</button>
+            </div>
         </div>
     </div>
-    <div id="filterSection">
-        <div id="serch">
-            <form action="" id="serchForm">
-                <input type="search" name="" id="pet_race_asxed" class="inputSerch" placeholder="גזע">
-                <input type="search" name="" id="pet_type_asxed" class="inputSerch" placeholder="זן">
-                <input type="search" name="" id="pet_gender_asxed" class="inputSerch" placeholder="gender">
-                <input type="number" name="pet_max_age" min="1" max="100" id="pet_max_age_asxed" class="inputSerch"
-                    placeholder="Max Age">
-                <input type="number" name="pet_min_age" min="1" max="100" id="pet_min_age_asxed" class="inputSerch"
-                    placeholder="Min Age">
-
-            </form>
-
-            <button type="submit" id="suButton" onclick="getSpecificAnimle()">חפש לי</button>
+    <div id="forYouSection">
+        <div id="forYouTitle">
+            <h2>Available Pets – Waiting for a Loving Home!</h2>
         </div>
+        <div id="forYou"></div>
     </div>
-    <div id="forYou"></div>
     <script src="index.js"></script>
     <script>
         window.addEventListener('load', async () => {
@@ -41,10 +68,44 @@
             theNav.appendChild(createNavBar(arrForNav, 'Home'));
 
             await availblepets()
-            await giveFullCard()
+            giveFullCard();
         });
 
+    </script>
+    <script>
+        const minRange = document.getElementById("minRange");
+        const maxRange = document.getElementById("maxRange");
+        const sliderTrack = document.querySelector(".slider-track");
+        const selectedRangeText = document.getElementById("selectedRange");
 
+        function updateSlider() {
+            let minValue = parseInt(minRange.value);
+            let maxValue = parseInt(maxRange.value);
+
+            // Ensure min is never greater than max
+            if (minValue >= maxValue) {
+                minRange.value = maxValue - 1;
+                minValue = maxValue - 1;
+            }
+
+            // Calculate percentage position
+            let minPercent = ((minValue - minRange.min) / (minRange.max - minRange.min)) * 100;
+            let maxPercent = ((maxValue - minRange.min) / (minRange.max - minRange.min)) * 100;
+
+            // Update the slider track (blue bar)
+            sliderTrack.style.left = minPercent + "%";
+            sliderTrack.style.width = (maxPercent - minPercent) + "%";
+
+            // Update displayed range
+            selectedRangeText.textContent = `${minValue} - ${maxValue}`;
+        }
+
+        // Initialize slider positions
+        updateSlider();
+
+        // Event listeners
+        minRange.addEventListener("input", updateSlider);
+        maxRange.addEventListener("input", updateSlider);
     </script>
 </body>
 
