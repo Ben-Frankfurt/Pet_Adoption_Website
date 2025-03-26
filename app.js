@@ -69,7 +69,9 @@ app.route('/getFullCard').get(async (req, res) => {
 
                 <body>
                     <div id="topPage">
-                        <div id="logoSection">Logo</div>
+                        <div id="logoSection">
+                            <h4>Ben's Adoption Center</h4>
+                        </div>
                         <div id="menuSection">
 
                             <div class="navBar">navBar</div>
@@ -101,6 +103,17 @@ app.route('/getFullCard').get(async (req, res) => {
                         </div>
                     </div>
                     <script src="index.js"></script>
+                    <script>
+                        window.addEventListener('load', async () => {
+                            let theNav = document.querySelector('.navBar');
+                            theNav.innerHTML = '';
+                            theNav.appendChild(createNavBar(arrForNav, 'Home'));
+
+                            await availblepets()
+                            giveFullCard();
+                        });
+
+                    </script>
                 </body>
 
                 </html>`
@@ -129,47 +142,47 @@ app.route('/setNewLied').post(async (req, res) => {
         const lide_id = array_lide_id[0]
 
         html = `<!DOCTYPE html>
-<html lang="en">
+                    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="index.css">
-</head>
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Document</title>
+                        <link rel="stylesheet" href="index.css">
+                    </head>
 
-<body>
-    <div class="wellcamContainer">
-        <div id="topPage">
-            <div id="logoSection">
-                <!-- <img src="pet Adoption center -.png" alt="web site logo" class="logoImg"> -->
-                <h4>Ben's Adoption Center</h4>
-            </div>
-            <div id="menuSection">
+                    <body>
+                        <div class="wellcamContainer">
+                            <div id="topPage">
+                                <div id="logoSection">
+                                    <!-- <img src="pet Adoption center -.png" alt="web site logo" class="logoImg"> -->
+                                    <h4>Ben's Adoption Center</h4>
+                                </div>
+                                <div id="menuSection">
 
-            </div>
-        </div>
-        <div class="middleDiv">
-            <h1>One Step Closer to Your Forever Friend.</h1>
-        </div>
-        <div id="filterSection">
-            <div class="thankYouCard">
-                <h1>Thank you ${first_name}!</h1>
-                <hr>
-                <p>Thank you for submitting your details! We’ve received your request and will be in touch soon with
-                    more
-                    information. We appreciate your support in giving a loving home to one of our pets.</p>
-                <button id="adoptBotton" type="submit" onclick="goHome()">Go Home</button>
-            </div>
-        </div>
-    </div>
+                                </div>
+                            </div>
+                            <div class="middleDiv">
+                                <h1>One Step Closer to Your Forever Friend.</h1>
+                            </div>
+                            <div id="filterSection">
+                                <div class="thankYouCard">
+                                    <h1>Thank you ${first_name}!</h1>
+                                    <hr>
+                                    <p>Thank you for submitting your details! We’ve received your request and will be in touch soon with
+                                        more
+                                        information. We appreciate your support in giving a loving home to one of our pets.</p>
+                                    <button id="adoptBotton" type="submit" onclick="goHome()">Go Home</button>
+                                </div>
+                            </div>
+                        </div>
 
 
 
-    <script src="index.js"></script>
-</body>
+                        <script src="index.js"></script>
+                    </body>
 
-</html>`;
+                    </html>`;
         res.send(html);
 
 
@@ -227,11 +240,13 @@ app.route('/getFullLide').get(async (req, res) => {
 
                         <body>
                             <div id="topPage">
-                                <div id="logoSection">Logo</div>
+                                <div id="logoSection">
+                                    <h4>Ben's Adoption Center</h4>
+                                </div>
                                 <div id="menuSection">
 
-                                    <div class="navBar">navBar</div>
-                                </div>
+                                <div class="navBar">navBar</div>
+                            </div>
                             </div>
 
                             <div class="fullLideCard" id="${lide.id}">
@@ -266,6 +281,16 @@ app.route('/getFullLide').get(async (req, res) => {
                                 </div>
                             </div>
                             <script src="emploeeysDashboard.js"></script>
+                            <script src="index.js"></script>
+                            <script>
+                                window.addEventListener('load', async () => {
+                                    let theNav = document.querySelector('.navBar');
+                                    theNav.innerHTML = '';
+                                    theNav.appendChild(createNavBar(arrForNav, 'Emploee Dashboard'));
+                                    await allLides();
+                                    giveFullLide()
+                                });
+                            </script>
                         </body>
 
                         </html>`

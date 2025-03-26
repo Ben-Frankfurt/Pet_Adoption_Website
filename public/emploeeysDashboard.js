@@ -117,8 +117,9 @@ async function petWasAdopted() {
             },
             body: JSON.stringify({ pet_id, customer_id, lide_id })
         });
+        window.location.href = '/emploeeysDashboard';
     } catch (error) {
-
+        console.error('Error deleting lide:', error);
     }
 
 };

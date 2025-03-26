@@ -1,16 +1,28 @@
-#lidesContainer {
+#lidesFullContainer {
     margin-top: 100px;
     width: 85%;
-    border: 1px solid black;
     /* height: 150px; */
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
+    border-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgba(95, 153, 174, 0.505);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#lidesContainer {
+    width: 98%;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    background-color: rgba(252, 252, 252, 0.986);
+    box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-bottom: 20px;
 }
 
 #lidesTitle {
     width: 100%;
     height: 100px;
-    background-color: rgba(95, 158, 160, 0.836);
+    color: aliceblue;
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     display: flex;
@@ -32,7 +44,7 @@
     width: 90%;
     height: 90px;
     /* border: 1px solid black; */
-    background-color: rgba(95, 158, 160, 0.308);
+    background-color: rgba(95, 153, 174, 0.505);
     margin-top: 25px;
     border-radius: 5px;
     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
@@ -68,6 +80,7 @@
 }
 
 .dtlCard h2 {
+    color: aliceblue;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
