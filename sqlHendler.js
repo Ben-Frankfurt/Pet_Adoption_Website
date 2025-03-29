@@ -235,6 +235,46 @@ async function deleteAllLidesForAdoptedPet(pet_id) {
     }
 };
 
+async function signin(uname, pass) {
+    try {
+        let pool = await sql.connect(config);
+        let result = await pool.request()
+            .input('user_name', sql.NVARCHAR(50), uname)
+            .input('user_password', sql.NVARCHAR(100), pass)
+            .execute('dbo.spInsertNewcarditial');
+
+        return result.recordset;
+    }
+    catch (error) {
+        console.log(error);
+        throw (error);
+    }
+    finally {
+        sql.close()
+    }
+
+}
+
+async function login(uname, pass) {
+    try {
+        let pool = await sql.connect(config);
+        let result = await pool.request()
+            .input('user_name', sql.NVARCHAR(50), uname)
+            .execute('dbo.spReturncarditial');
+
+        return result.recordset;
+    }
+    catch (error) {
+        console.log(error);
+        throw (error);
+    }
+    finally {
+        sql.close()
+    }
+
+}
+module.exports.signin = signin;
+module.exports.login = login;
 module.exports.deleteAllLidesForAdoptedPet = deleteAllLidesForAdoptedPet;
 module.exports.setAtoptionStatus = setAtoptionStatus;
 module.exports.setNewAtoption = setNewAtoption;

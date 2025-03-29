@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption Center</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="wellcamContainer">
+        <div id="filterSection">
+            <div id="loginContainer">
+                <h2>Log In</h2>
+                <label for="uname">User Name:</label>
+                <input type="text" name="uname" id="unameSI" class="inputTable">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="passwordSI" class="inputTable">
+                <div id="errormessage"></div>
+                <button type="submit" onclick="login()">login</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    async function login() {
+        const uname = document.querySelector("#unameSI").value;
+        const password = document.querySelector("#passwordSI").value;
+
+        try {
+            const respons = await fetch("/loginVerify", {
+                method: "post",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ uname: uname, password: password })
+            });
+            if (respons.ok) {
+                window.location.href = '/emploeeysDashboard';
+            } else {
+                document.querySelector("#errormessage").innerHTML = '<h4>Incorrect User name/ password </h4>';
+            }
+
+        } catch (error) {
+            console.log("error: ", error);
+
+        }
+    }
+</script>
+
+</html>

@@ -18,9 +18,12 @@
   "homepage": "https://github.com/Ben-Frankfurt/Pet_Adoption_Website#readme",
   "description": "",
   "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
     "mssql": "^11.0.1"
   }
 }

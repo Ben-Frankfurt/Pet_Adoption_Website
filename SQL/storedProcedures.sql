@@ -186,3 +186,30 @@ BEGIN
     RETURN @rowsAffected;
 END
 GO
+
+-------------------------------------------------------------------
+-- create stored procidure for insert new user name and password and return his id --
+-------------------------------------------------------------------
+CREATE or ALTER PROCEDURE [dbo].[spInsertNewcarditial]
+@user_name NVARCHAR(50),
+@user_password NVARCHAR(100)
+
+as 
+BEGIN
+IF NOT EXISTS(SELECT * FROM loginlist WHERE user_name = @user_name AND user_password = @user_password)
+	INSERT INTO dbo.loginlist(user_name, user_password) VALUES (@user_name, @user_password);
+END
+GO
+
+-------------------------------------------------------------------
+-- create stored procidure for return user name and passwor--
+-------------------------------------------------------------------
+CREATE or ALTER PROCEDURE [dbo].[spReturncarditial]
+@user_name NVARCHAR(50)
+
+as 
+BEGIN
+IF EXISTS(SELECT * FROM loginlist WHERE user_name = @user_name )
+	SELECT user_name, user_password FROM loginlist WHERE user_name = @user_name ;
+END
+GO

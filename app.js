@@ -6,8 +6,32 @@ app.use(express.static('public'));
 app.use(express.json());
 const path = require('path');
 const { log } = require('console');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
+const SECERET_KEY = 'abara_cadabra_bom_chakalaka_ooops_no';
 
 
+function validateCookie(req, res, next) {
+    const token = req.cookies ? req.cookies.token : null;
+
+    if (!token) {
+        req.user = null;
+        next();
+    }
+
+    jwt.verify(token, SECERET_KEY, (err, decoded) => {
+        if (err) {
+            req.user = null;
+        } else {
+            req.user = decoded;
+        }
+
+        next();
+    });
+}
 
 
 app.get('/AvilablePets', async (req, res) => {
@@ -196,8 +220,12 @@ app.route('/setNewLied').post(async (req, res) => {
 
 });
 
-app.route('/emploeeysDashboard').get((req, res) => {
-    res.sendFile(path.join(__dirname, 'private', 'emplossysDashboard.html'));
+app.route('/emploeeysDashboard').get(validateCookie, (req, res) => {
+    if (!req.user) {
+        res.sendFile(path.join(__dirname, '/public/loginPage.html'));
+    } else {
+        res.sendFile(path.join(__dirname, 'private', 'emplossysDashboard.html'));
+    }
 });
 
 app.get('/getAllLides', async (req, res) => {
@@ -337,6 +365,37 @@ app.put('/petWasAtopted', async (req, res) => {
     }
 
 })
+
+app.route('/login').get((req, res) => {
+    res.sendFile(path.join(__dirname, '/public/loginPage.html'));
+});
+
+app.post('/loginVerify', async (req, res) => {
+    const { uname, password } = req.body;
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
+
+    try {
+        const result = await sqlHendler.login(req.body.uname);
+        const isMatch = await bcrypt.compare(req.body.password, result[0].user_password);
+
+        if (result[0].user_name == req.body.uname && isMatch) {
+
+            const payloadToken = { uname, date: new Date().toLocaleString() }
+            const theToken = jwt.sign(payloadToken, SECERET_KEY, { expiresIn: '2m' });
+            res.cookie('token', theToken, { httpOnly: true });
+            res.status(200).send();
+
+        } else {
+            res.status(400).send();
+        }
+    } catch (error) {
+        res.status(400).send('Invalid credentials');
+    }
+
+});
+
+
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);

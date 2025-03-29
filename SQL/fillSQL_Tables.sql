@@ -283,6 +283,16 @@ INSERT INTO dbo.lides (id, customer_id, pet_id, [date]) VALUES (5, 2, 38, N'2025
 SET IDENTITY_INSERT dbo.lides OFF;
 GO
 
+-------------------------------------
+------ fill the loginlist table ------
+-------------------------------------
+SET IDENTITY_INSERT dbo.loginlist ON;
+
+INSERT INTO dbo.loginlist (id, user_name, user_password) VALUES (1, N'dani', N'1234');
+INSERT INTO dbo.loginlist (id, user_name, user_password) VALUES (2, N'sara', N'5678');
+
+SET IDENTITY_INSERT dbo.loginlist OFF;
+GO
 
 
 

@@ -77,6 +77,13 @@ CREATE TABLE dbo.races (
 );
 GO
 
+CREATE TABLE dbo.loginlist (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    user_name NVARCHAR(50),
+    user_password NVARCHAR(100)  
+);
+GO
+
 CREATE TABLE dbo.emploeeys (
     id INT IDENTITY(1,1) PRIMARY KEY,
     first_name NVARCHAR(50),
